@@ -12,7 +12,6 @@ public class Dealer implements Human{
 	public void hit(ArrayList<String> card) {
 		dealerCard.add(card.get(card.size()-1));
 		card.remove(card.size()-1);
-//		System.out.println(dealerCard);
 	}
 
 	@Override
@@ -39,41 +38,19 @@ public class Dealer implements Human{
 			
 			total += getValue;
 		}
-//		System.out.println(total);
 	}
 
 	@Override
 	public void checkBust() {
 		if(total > 21) {
 			System.out.println("Dealer bust");
-		}else {
-//			System.out.println("total : " + total);
 		}
 	}
 	
 	public void showCard() {
-		System.out.println("딜러카드 : [" + dealerCard.get(0) +"]");
+		System.out.println("딜러의 1번째 카드 : [" + dealerCard.get(0) +"]");
 	}
 	
-//	public void changeA() {
-//		for(int i=0; i<dealerCard.size(); i++) {
-//			if(dealerCard.get(i).charAt(1) == 'A') {
-//				System.out.println((i+1) + "번째 A카드를 11로 바꾸시겠습니까?");
-//				System.out.println("1. 예");
-//				System.out.println("2. 아니오");
-//				if(sc.nextInt() == 1) {
-//					dealerCard.set(i, dealerCard.get(i).charAt(0) + "B");
-//				}
-//			}else {
-//				System.out.println("바꿀a없음!");
-//			}
-//		}
-//	}
-	// A가 없다
-	// A가 1개
-	// A가 2개
-	// A가 3개
-	// A가 4개
 	public void dealerAlgorithm() {
 		int cnt = 0;
 		for(int i=0; i<dealerCard.size(); i++) {

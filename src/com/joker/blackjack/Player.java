@@ -38,7 +38,7 @@ public class Player implements Human{
 			
 			total += getValue;
 		}
-		System.out.println("ÇöÀç ÃÑÇÕ : " + total);
+		System.out.println("ÇöÀç ³» Ä«µå ÃÑÇÕ : " + total);
 	}
 
 	@Override
@@ -46,8 +46,6 @@ public class Player implements Human{
 		if(total > 21) {
 			System.out.println("Player bust");
 			return;
-		}else {
-			System.out.println("total : " + total);
 		}
 	}
 	
@@ -60,8 +58,6 @@ public class Player implements Human{
 				if(sc.nextInt() == 1) {
 					playerCard.set(i, playerCard.get(i).charAt(0) + "B");
 				}
-			}else {
-//				System.out.println("¹Ù²Üa¾øÀ½!");
 			}
 		}
 	}
