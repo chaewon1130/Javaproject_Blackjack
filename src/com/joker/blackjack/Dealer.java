@@ -5,7 +5,7 @@ import java.util.*;
 public class Dealer implements Human{
 
 	ArrayList<String> dealerCard = dCard;
-	int total = 0;
+	static int total = 0;
 	Scanner sc = new Scanner(System.in);
 	
 	@Override

@@ -5,13 +5,19 @@ import java.util.*;
 public class Player implements Human{
 
 	ArrayList<String> playerCard = pCard;
-	int total = 0;
+	static int total = 0;
+	int num = 1;
+	static int money = 1_000_000;
+	static boolean blackJack = false;
 	Scanner sc = new Scanner(System.in);
 	@Override
 	public void hit(ArrayList<String> card) {
 		playerCard.add(card.get(card.size()-1));
 		card.remove(card.size()-1);
-		System.out.println("내 카드 : " + playerCard);
+		if(num > 1) {
+			System.out.println("내 카드 : " + playerCard);
+		}
+		num++;
 	}
 
 	@Override
@@ -55,9 +61,26 @@ public class Player implements Human{
 				System.out.println((i+1) + "번째 A카드를 11로 바꾸시겠습니까?");
 				System.out.println("1. 예");
 				System.out.println("2. 아니오");
+				System.out.print(">> ");
 				if(sc.nextInt() == 1) {
 					playerCard.set(i, playerCard.get(i).charAt(0) + "B");
 				}
+			}
+		}
+	}
+	public void checkBlackJack() {
+		char[] blackJackCard = new char[2];
+		for(int i = 0; i<2; i++) {
+			blackJackCard[i] = playerCard.get(i).charAt(1);
+		}
+		if(blackJackCard[0] == 'A') {
+			if((blackJackCard[1] == 'J') || (blackJackCard[1] == 'Q') || (blackJackCard[1] == 'K')) {
+				blackJack = true;
+			}
+		}
+		if((blackJackCard[0] == 'J') || (blackJackCard[0] == 'Q') || (blackJackCard[0] == 'K')) {
+			if(blackJackCard[1] == 'A') {
+				blackJack = true;
 			}
 		}
 	}
