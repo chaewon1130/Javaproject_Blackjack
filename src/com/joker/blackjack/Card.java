@@ -7,10 +7,7 @@ import java.util.Scanner;
 
 public class Card {
 
-	public static int win = 0;
-	public static int draw = 0;
-	public static int lose = 0;
-	public static int bet = 0;
+	
 
 	ArrayList<String> cardList = new ArrayList<>();
 
@@ -51,12 +48,12 @@ public class Card {
 				System.out.println("내가 가진 돈 : " + decfm.format(money));
 				System.out.print(">> ");
 				Scanner sc = new Scanner(System.in);
-				bet = sc.nextInt();
-				if (bet > money) {
+				Player.bet = sc.nextInt();
+				if (Player.bet > money) {
 					System.out.println(" 베팅금액이 가지고 계신 돈보다 큽니다. 다시 입력해주세요");
 					Thread.sleep(1000);
 				} else {
-					System.out.println("베팅금액이 " + decfm.format(bet) + "으로 설정되었습니다.");
+					System.out.println("베팅금액이 " + decfm.format(Player.bet) + "으로 설정되었습니다.");
 					Thread.sleep(1000);
 					flag = false;
 				}

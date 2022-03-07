@@ -37,11 +37,14 @@ public class Story {
 			if (quit.equals("EXIT")) {
 				System.out.println("<<< 게 임 종 료 >>>");
 				Thread.sleep(1000);
-				System.out.println("전적 : " + Card.win + "승 " + Card.draw + "무 " + Card.lose + "패");
+				System.out.println("전적 : " + Player.win + "승 " + Player.draw + "무 " + Player.lose + "패");
 				DecimalFormat decfm = new DecimalFormat("###,###");
 				System.out.println("남은금액 : " + decfm.format(Player.money));
 				Thread.sleep(1000);
-				System.out.println("이용해 주셔서 감사합니다!");
+				System.out.println("로그 저장을 위한 아이디를 작성해주세요!");
+				System.out.printf(">> ");
+				Player.saveLog(sc.nextLine());
+				System.out.println("저장되었습니다. 이용해 주셔서 감사합니다!");
 				return false;
 			}
 		} catch (InterruptedException e) {
@@ -85,15 +88,15 @@ public class Story {
 			Thread.sleep(2000);
 			if (Player.total > Dealer.total) {
 				System.out.println("Player 승리");
-				Card.win++;
-				Player.money += Card.bet;
+				Player.win++;
+				Player.money += Player.bet;
 			} else if (Player.total == Dealer.total) {
 				System.out.println("비겼습니다");
-				Card.draw++;
+				Player.draw++;
 			} else {
 				System.out.println("Dealer 승리");
-				Card.lose++;
-				Player.money -= Card.bet;
+				Player.lose++;
+				Player.money -= Player.bet;
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

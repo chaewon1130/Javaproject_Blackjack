@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class CardMain {
 
 	public static void main(String[] args) {
+		
 		Story.gameStart();
 		boolean flag = true;
 		while (flag) {
@@ -15,7 +16,7 @@ public class CardMain {
 
 	public static void run() {
 		try {
-			boolean flag = true;
+			boolean flag1 = true;
 			Story.regret();
 			Card.bet();
 			Scanner sc = new Scanner(System.in);
@@ -50,7 +51,7 @@ public class CardMain {
 			System.out.println(dealer.showCard());
 			System.out.println("======================");
 			Thread.sleep(1500);
-			while (flag) {
+			while (flag1) {
 				System.out.println("카드를 한 장 더 받으시겠어요?");
 				Thread.sleep(1000);
 				System.out.println("1. 예(HIT)");
@@ -65,18 +66,23 @@ public class CardMain {
 					Thread.sleep(500);
 					player.calTotal();
 					Thread.sleep(500);
-					flag = player.checkBust(flag);
+					flag1 = player.checkBust(flag1);
 				} else {
 					Thread.sleep(1000);
 					player.changeA();
 					player.calTotal();
-					flag = false;
+					flag1 = false;
 				}
 			}
-			flag = true;
-			while (flag) {
-				if (player.blackJack) {
-					break;
+			flag1 = true;
+			boolean flag2 = true;
+			while (flag2) {
+				if (player.checkBlackJack()) {
+					flag2=false;
+				}
+				if(player.checkBust(flag1) == false) {
+					dealer.total = 20;
+					flag2 = false;
 				}
 				dealer.dealerAlgorithm();
 				dealer.calTotal();
@@ -84,21 +90,19 @@ public class CardMain {
 					dealer.hit(card.cardList);
 					dealer.calTotal();
 					Thread.sleep(500);
-					flag = dealer.checkBust(flag);
+					flag2 = dealer.checkBust(flag2);
 				} else {
-					flag = false;
+					flag2 = false;
 				}
 			}
-			player.checkBlackJack();
 			if (player.blackJack) {
 				Thread.sleep(1000);
 				System.out.println("Black Jack!!!");
-				Card.win++;
-				Player.money += (int) (Card.bet * 1.5);
+				Player.win++;
+				Player.money += (int) (Player.bet * 1.5);
 			} else {
 				Story.showResult();
 			}
-			player.blackJack = false;
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

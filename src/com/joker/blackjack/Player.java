@@ -1,5 +1,9 @@
 package com.joker.blackjack;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,9 +12,24 @@ public class Player implements Human {
 	ArrayList<String> playerCard = pCard;
 	static int total = 0;
 	int num = 1;
+	static String inputId = "";
 	static int money = 1_000_000;
+	static int bet = 0;
+	static int win = 0;
+	static int draw = 0;
+	static int lose = 0;
 	static boolean blackJack = false;
-	Scanner sc = new Scanner(System.in);
+	static String filePath = "C:\\Users\\chaew\\Desktop\\java1\\BlackJack\\src\\com\\joker\\blackjack\\log.csv";
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void saveLog(String Id) {
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(filePath, true))){
+			DecimalFormat decfm = new DecimalFormat("###,###");
+			bw.write(Id + " / " + win + " / " + draw + " / " + lose + " / " + decfm.format(money) + "\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void hit(ArrayList<String> card) {
@@ -73,20 +92,22 @@ public class Player implements Human {
 		}
 	}
 
-	public void checkBlackJack() {
+	public boolean checkBlackJack() {
+		blackJack = false;
 		char[] blackJackCard = new char[2];
 		for (int i = 0; i < 2; i++) {
 			blackJackCard[i] = playerCard.get(i).charAt(1);
 		}
-		if (blackJackCard[0] == 'A') {
+		if (blackJackCard[0] == 'B') {
 			if ((blackJackCard[1] == 'J') || (blackJackCard[1] == 'Q') || (blackJackCard[1] == 'K')) {
 				blackJack = true;
 			}
 		}
 		if ((blackJackCard[0] == 'J') || (blackJackCard[0] == 'Q') || (blackJackCard[0] == 'K')) {
-			if (blackJackCard[1] == 'A') {
+			if (blackJackCard[1] == 'B') {
 				blackJack = true;
 			}
 		}
+		return blackJack;
 	}
 }
