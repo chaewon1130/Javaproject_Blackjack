@@ -21,7 +21,7 @@ public class Dealer implements Human {
 		for (int i = 0; i < dealerCard.size(); i++) {
 			int getValue = 0;
 			switch (dealerCard.get(i).charAt(1)) {
-			case '1':// 10ÀÎ°æ¿ì
+			case '1':
 			case 'J':
 			case 'Q':
 			case 'K':
@@ -52,10 +52,10 @@ public class Dealer implements Human {
 	}
 
 	public String showCard() {
-		return "µô·¯ÀÇ 1¹øÂ° Ä«µå : [" + dealerCard.get(0) + "]";
+		return "ë”œëŸ¬ì˜ 1ë²ˆì§¸ ì¹´ë“œ : [" + dealerCard.get(0) + "]";
 	}
 
-	public void dealerAlgorithm() {
+	public void changeA() {
 		int cnt = 0;
 		for (int i = 0; i < dealerCard.size(); i++) {
 			if ((dealerCard.get(i).charAt(1) == 'A')) {

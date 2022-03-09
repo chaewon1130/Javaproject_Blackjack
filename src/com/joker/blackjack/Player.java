@@ -36,7 +36,7 @@ public class Player implements Human {
 		playerCard.add(card.get(card.size() - 1));
 		card.remove(card.size() - 1);
 		if (num > 1) {
-			System.out.println("�� ī�� : " + playerCard);
+			System.out.println("내 카드 : " + playerCard);
 		}
 		num++;
 	}
@@ -47,7 +47,7 @@ public class Player implements Human {
 		for (int i = 0; i < playerCard.size(); i++) {
 			int getValue = 0;
 			switch (playerCard.get(i).charAt(1)) {
-			case '1':// 10�ΰ��
+			case '1':// 10인경우
 			case 'J':
 			case 'Q':
 			case 'K':
@@ -65,7 +65,7 @@ public class Player implements Human {
 
 			total += getValue;
 		}
-		System.out.println("���� �� ī�� ���� : " + total);
+		System.out.println("현재 내 카드 총합 : " + total);
 	}
 
 	@Override
@@ -81,9 +81,9 @@ public class Player implements Human {
 	public void changeA() {
 		for (int i = 0; i < playerCard.size(); i++) {
 			if (playerCard.get(i).charAt(1) == 'A') {
-				System.out.println((i + 1) + "��° Aī�带 11�� �ٲٽðڽ��ϱ�?");
-				System.out.println("1. ��");
-				System.out.println("2. �ƴϿ�");
+				System.out.println((i + 1) + "번째 A카드를 11로 바꾸시겠습니까?");
+				System.out.println("1. 예");
+				System.out.println("2. 아니오");
 				System.out.print(">> ");
 				if (sc.nextInt() == 1) {
 					playerCard.set(i, playerCard.get(i).charAt(0) + "B");
@@ -109,5 +109,35 @@ public class Player implements Human {
 			}
 		}
 		return blackJack;
+	}
+	
+	public static void bet() {
+		try {
+			boolean flag = true;
+			while (flag) {
+				DecimalFormat decfm = new DecimalFormat("###,###");
+				Thread.sleep(1000);
+				System.out.println("<< 베팅금액을 입력해주세요 >>");
+				Thread.sleep(1000);
+				System.out.println("내가 가진 돈 : " + decfm.format(money));
+				System.out.print(">> ");
+				Scanner sc = new Scanner(System.in);
+				bet = sc.nextInt();
+				if(bet <= 100) {
+					System.out.println("베팅금액은 100원 이상이어야합니다.");
+					continue;
+				}
+				if (bet > money) {
+					System.out.println(" 베팅금액이 가지고 계신 돈보다 큽니다. 다시 입력해주세요");
+					Thread.sleep(1000);
+				} else {
+					System.out.println("베팅금액이 " + decfm.format(bet) + "으로 설정되었습니다.");
+					Thread.sleep(1000);
+					flag = false;
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }

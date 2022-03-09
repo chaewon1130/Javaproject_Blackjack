@@ -2,7 +2,8 @@ package com.joker.blackjack;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Card {
@@ -12,8 +13,8 @@ public class Card {
 	ArrayList<String> cardList = new ArrayList<>();
 
 	ArrayList<String> cardNum = new ArrayList<>(
-			List.of("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"));
-	ArrayList<String> cardKind = new ArrayList<>(List.of("¢¾", "¢¼", "¡ß", "¢À"));
+			Arrays.asList("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"));
+	ArrayList<String> cardKind = new ArrayList<>(Arrays.asList("â™¥", "â™ ", "â—†", "â™£"));
 
 	ArrayList<String> dealerCard = new ArrayList<>();
 	ArrayList<String> playerCard = new ArrayList<>();
@@ -34,33 +35,5 @@ public class Card {
 			cardList.set(num1, cardList.get(num2));
 			cardList.set(num2, temp);
 		}
-	}
-
-	public static void bet() {
-		try {
-			int money = Player.money;
-			boolean flag = true;
-			while (flag) {
-				DecimalFormat decfm = new DecimalFormat("###,###");
-				Thread.sleep(1000);
-				System.out.println("<< º£ÆÃ±Ý¾×À» ÀÔ·ÂÇØÁÖ¼¼¿ä >>");
-				Thread.sleep(1000);
-				System.out.println("³»°¡ °¡Áø µ· : " + decfm.format(money));
-				System.out.print(">> ");
-				Scanner sc = new Scanner(System.in);
-				Player.bet = sc.nextInt();
-				if (Player.bet > money) {
-					System.out.println(" º£ÆÃ±Ý¾×ÀÌ °¡Áö°í °è½Å µ·º¸´Ù Å®´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä");
-					Thread.sleep(1000);
-				} else {
-					System.out.println("º£ÆÃ±Ý¾×ÀÌ " + decfm.format(Player.bet) + "À¸·Î ¼³Á¤µÇ¾ú½À´Ï´Ù.");
-					Thread.sleep(1000);
-					flag = false;
-				}
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
 	}
 }

@@ -11,5 +11,7 @@ public interface Human {
 	void calTotal();
 
 	boolean checkBust(boolean flag);
+	
+	void changeA();
 
 }

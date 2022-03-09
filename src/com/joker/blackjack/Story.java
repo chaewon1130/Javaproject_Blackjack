@@ -7,13 +7,13 @@ public class Story {
 	public static void gameStart() {
 		try {
 			System.out.println("===============================");
-			System.out.println("ºí·¢Àè °ÔÀÓ¿¡ ¿À½Å ¿©·¯ºĞÀ» È¯¿µÇÕ´Ï´Ù.");
+			System.out.println("ë¸”ë™ì­ ê²Œì„ì— ì˜¤ì‹  ì—¬ëŸ¬ë¶„ì„ í™˜ì˜í•©ë‹ˆë‹¤.");
 			Thread.sleep(2000);
-			System.out.println("·êÀº °£´ÜÇÕ´Ï´Ù. ¼ıÀÚµéÀÇ ÇÕÀÌ 21À» ³Ñ±âÁö ¾Ê°í ");
+			System.out.println("ë£°ì€ ê°„ë‹¨í•©ë‹ˆë‹¤. ìˆ«ìë“¤ì˜ í•©ì´ 21ì„ ë„˜ê¸°ì§€ ì•Šê³  ");
 			Thread.sleep(2000);
-			System.out.println("21¿¡ °¡Àå ±ÙÁ¢ÇÏ¸é µÇ´Â °ÔÀÓÀÔ´Ï´Ù.");
+			System.out.println("21ì— ê°€ì¥ ê·¼ì ‘í•˜ë©´ ë˜ëŠ” ê²Œì„ì…ë‹ˆë‹¤.");
 			Thread.sleep(2000);
-			System.out.println("°ÔÀÓÀ» ½ÃÀÛÇÏ½Ã·Á¸é <ENTER>¸¦ ´­·¯ÁÖ¼¼¿ä");
+			System.out.println("ê²Œì„ì„ ì‹œì‘í•˜ì‹œë ¤ë©´ <ENTER>ë¥¼ ëˆŒëŸ¬ì£¼ì„¸ìš”");
 			System.out.println("================================");
 			Thread.sleep(1000);
 		} catch (InterruptedException e1) {
@@ -29,22 +29,22 @@ public class Story {
 			Thread.sleep(1000);
 			Scanner sc = new Scanner(System.in);
 			System.out.println("================================");
-			System.out.println("<< °ÔÀÓÀ» ³¡³»·Á¸é EXITÀ» ÀÔ·ÂÇÏ¼¼¿ä. >>");
-			System.out.println("<< ´õÇÏ°í ½ÍÀ¸¸é EnterÅ°¸¦ ´©¸£¼¼¿ä. >>");
+			System.out.println("<< ê²Œì„ì„ ëë‚´ë ¤ë©´ EXITì„ ì…ë ¥í•˜ì„¸ìš”. >>");
+			System.out.println("<< ë”í•˜ê³  ì‹¶ìœ¼ë©´ Enterí‚¤ë¥¼ ëˆ„ë¥´ì„¸ìš”. >>");
 			System.out.println("================================");
 			System.out.print(">> ");
 			String quit = sc.nextLine().toUpperCase();
 			if (quit.equals("EXIT")) {
-				System.out.println("<<< °Ô ÀÓ Á¾ ·á >>>");
+				System.out.println("<<< ê²Œ ì„ ì¢… ë£Œ >>>");
 				Thread.sleep(1000);
-				System.out.println("ÀüÀû : " + Player.win + "½Â " + Player.draw + "¹« " + Player.lose + "ÆĞ");
+				System.out.println("ì „ì  : " + Player.win + "ìŠ¹ " + Player.draw + "ë¬´ " + Player.lose + "íŒ¨");
 				DecimalFormat decfm = new DecimalFormat("###,###");
-				System.out.println("³²Àº±İ¾× : " + decfm.format(Player.money));
+				System.out.println("ë‚¨ì€ê¸ˆì•¡ : " + decfm.format(Player.money));
 				Thread.sleep(1000);
-				System.out.println("·Î±× ÀúÀåÀ» À§ÇÑ ¾ÆÀÌµğ¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä!");
+				System.out.println("ë¡œê·¸ ì €ì¥ì„ ìœ„í•œ ì•„ì´ë””ë¥¼ ì‘ì„±í•´ì£¼ì„¸ìš”!");
 				System.out.printf(">> ");
 				Player.saveLog(sc.nextLine());
-				System.out.println("ÀúÀåµÇ¾ú½À´Ï´Ù. ÀÌ¿ëÇØ ÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù!");
+				System.out.println("ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤. ì´ìš©í•´ ì£¼ì…”ì„œ ê°ì‚¬í•©ë‹ˆë‹¤!");
 				return false;
 			}
 		} catch (InterruptedException e) {
@@ -56,23 +56,23 @@ public class Story {
 	public static void regret() {
 		try {
 			if (Player.money <= 0) {
-				System.out.println("°¡Áø µ·ÀÌ 0¿ø ÀÔ´Ï´Ù.");
+				System.out.println("ê°€ì§„ ëˆì´ 0ì› ì…ë‹ˆë‹¤.");
 				Thread.sleep(1000);
-				System.out.println("\"´Ù½Ã´Â µµ¹ÚÀ» ÇÏÁö ¾Ê°Ú½À´Ï´Ù\"¸¦ ÀÛ¼ºÇÏ½Ã¸é ±âÈ¸¸¦ µå¸®°Ú½À´Ï´Ù.");
+				System.out.println("\"ë‹¤ì‹œëŠ” ë„ë°•ì„ í•˜ì§€ ì•Šê² ìŠµë‹ˆë‹¤\"ë¥¼ ì‘ì„±í•˜ì‹œë©´ ê¸°íšŒë¥¼ ë“œë¦¬ê² ìŠµë‹ˆë‹¤.");
 				System.out.print(">> ");
 				Scanner sc = new Scanner(System.in);
-				String regret = "´Ù½Ã´Â µµ¹ÚÀ» ÇÏÁö ¾Ê°Ú½À´Ï´Ù";
+				String regret = "ë‹¤ì‹œëŠ” ë„ë°•ì„ í•˜ì§€ ì•Šê² ìŠµë‹ˆë‹¤";
 				while (true) {
 					if (sc.nextLine().equals(regret)) {
 						Thread.sleep(1000);
-						System.out.println("±âÈ¸ÁØ´Ù´Â °ÍÀº °ÅÁş¸»ÀÌ¾ú½À´Ï´Ù.");
+						System.out.println("ê¸°íšŒì¤€ë‹¤ëŠ” ê²ƒì€ ê±°ì§“ë§ì´ì—ˆìŠµë‹ˆë‹¤.");
 						Thread.sleep(1000);
-						System.out.println("ÀÌÁ¦ µµ¹ÚÀå¿¡ ¹ßµµ µğµğÁö ¸¶½Ê½Ã¿À.");
+						System.out.println("ì´ì œ ë„ë°•ì¥ì— ë°œë„ ë””ë””ì§€ ë§ˆì‹­ì‹œì˜¤.");
 						Thread.sleep(1000);
-						System.out.println("Á¾·áÇÕ´Ï´Ù.");
+						System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤.");
 						System.exit(0);
 					} else {
-						System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+						System.out.println("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 						System.out.print(">> ");
 					}
 				}
@@ -84,17 +84,17 @@ public class Story {
 
 	public static void showResult() {
 		try {
-			System.out.println("<< °á°ú¸¦ °è»êÇÕ´Ï´Ù. >>");
+			System.out.println("<< ê²°ê³¼ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤. >>");
 			Thread.sleep(2000);
 			if (Player.total > Dealer.total) {
-				System.out.println("Player ½Â¸®");
+				System.out.println("Player ìŠ¹ë¦¬");
 				Player.win++;
 				Player.money += Player.bet;
 			} else if (Player.total == Dealer.total) {
-				System.out.println("ºñ°å½À´Ï´Ù");
+				System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤");
 				Player.draw++;
 			} else {
-				System.out.println("Dealer ½Â¸®");
+				System.out.println("Dealer ìŠ¹ë¦¬");
 				Player.lose++;
 				Player.money -= Player.bet;
 			}

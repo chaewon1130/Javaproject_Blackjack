@@ -18,32 +18,32 @@ public class CardMain {
 		try {
 			boolean flag1 = true;
 			Story.regret();
-			Card.bet();
+			Player.bet();
 			Scanner sc = new Scanner(System.in);
 			Card card = new Card();
 			card.cardList.clear();
-			System.out.println("<< Ä«µå¸¦ ¼¯´Â ÁßÀÔ´Ï´Ù~ Àá½Ã¸¸ ±â´Ù·ÁÁÖ¼¼¿ä. >>");
+			System.out.println("<< ì¹´ë“œë¥¼ ì„ëŠ” ì¤‘ì…ë‹ˆë‹¤~ ì ì‹œë§Œ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”. >>");
 			card.makeCard();
 			card.shuffleCard();
 			Thread.sleep(3000);
-			System.out.println("TIP : ¸í½ÉÇÏ½Ê¼î, ¼ÕÀº ´«º¸´Ù ºü¸¨´Ï´Ù.");
+			System.out.println("TIP : ëª…ì‹¬í•˜ì‹­ì‡¼, ì†ì€ ëˆˆë³´ë‹¤ ë¹ ë¦…ë‹ˆë‹¤.");
 			Thread.sleep(2000);
 			Dealer dealer = new Dealer();
 			Player player = new Player();
 			dealer.dealerCard.clear();
 			player.playerCard.clear();
-			System.out.println("<< °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù >>");
+			System.out.println("<< ê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤ >>");
 			Thread.sleep(1000);
-			System.out.println("<< µô·¯ ÇÑÀå >>");
+			System.out.println("<< ë”œëŸ¬ í•œì¥ >>");
 			dealer.hit(card.cardList);
 			Thread.sleep(1500);
-			System.out.println("<< ÇÃ·¹ÀÌ¾î ÇÑÀå >>");
+			System.out.println("<< í”Œë ˆì´ì–´ í•œì¥ >>");
 			player.hit(card.cardList);
 			Thread.sleep(1500);
-			System.out.println("<< µô·¯ ÇÑÀå >>");
+			System.out.println("<< ë”œëŸ¬ í•œì¥ >>");
 			dealer.hit(card.cardList);
 			Thread.sleep(1500);
-			System.out.println("<< ÇÃ·¹ÀÌ¾î ÇÑÀå >>");
+			System.out.println("<< í”Œë ˆì´ì–´ í•œì¥ >>");
 			Thread.sleep(1500);
 			System.out.println("======================");
 			player.hit(card.cardList);
@@ -52,10 +52,10 @@ public class CardMain {
 			System.out.println("======================");
 			Thread.sleep(1500);
 			while (flag1) {
-				System.out.println("Ä«µå¸¦ ÇÑ Àå ´õ ¹ŞÀ¸½Ã°Ú¾î¿ä?");
+				System.out.println("ì¹´ë“œë¥¼ í•œ ì¥ ë” ë°›ìœ¼ì‹œê² ì–´ìš”?");
 				Thread.sleep(1000);
-				System.out.println("1. ¿¹(HIT)");
-				System.out.println("2. ¾Æ´Ï¿À(STAY)");
+				System.out.println("1. ì˜ˆ(HIT)");
+				System.out.println("2. ì•„ë‹ˆì˜¤(STAY)");
 				Thread.sleep(500);
 				System.out.print(">> ");
 				if (sc.nextInt() == 1) {
@@ -84,7 +84,7 @@ public class CardMain {
 					dealer.total = 20;
 					flag2 = false;
 				}
-				dealer.dealerAlgorithm();
+				dealer.changeA();
 				dealer.calTotal();
 				if (dealer.total < 17) {
 					dealer.hit(card.cardList);
