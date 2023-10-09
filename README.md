@@ -2,6 +2,9 @@
   <h2>[BLACKJACK 🎮]</h2>
 </div>
 
+![image](https://github.com/tubus1130/Javaproject_Blackjack/assets/50819376/065a3f4e-f322-4055-b7d7-1244da43f137)
+
+
 # 📌 개요
 - 프로젝트 이름 : BlackJack
 - 개발기간 : 2022.02 ~ 2022.04
